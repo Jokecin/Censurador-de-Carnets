@@ -95,7 +95,7 @@ class ImageCensorApp:
 
     def save_image(self):
         if self.image is not None:
-            reason = simpledialog.askstring("Finalidad de la imagen", "Ingrese la finalidad de la imagen:")
+            reason = simpledialog.askstring("Marca de agua", "Ingrese el nombre de la entidad a la que se le entregará la imagen:")
             if reason:
                 file_path = filedialog.asksaveasfilename(defaultextension=".png", filetypes=[("Archivos PNG", "*.png"), ("Todos los archivos", "*.*")])
                 if file_path:
@@ -103,17 +103,28 @@ class ImageCensorApp:
                     gray_image = cv2.cvtColor(self.image, cv2.COLOR_RGB2GRAY)
                     gray_image = cv2.cvtColor(gray_image, cv2.COLOR_GRAY2RGB)
 
+                    # Escalar el tamaño de la fuente basado en la altura de la imagen
+                    font_size = max(20, gray_image.shape[0] // 20)  # Ajusta el divisor según tus necesidades
+                    font = ImageFont.truetype("arial.ttf", font_size)
+
                     # Agregar el texto en el centro de la imagen
                     pil_image = Image.fromarray(gray_image)
                     draw = ImageDraw.Draw(pil_image)
-                    font = ImageFont.load_default()
-                    text = f"Solo para uso {reason}"
-                    text_size = draw.textbbox((0, 0), text, font=font)
-                    text_width = text_size[2] - text_size[0]
-                    text_height = text_size[3] - text_size[1]
+                    text = f"Entregada a {reason}"
+                    text_bbox = draw.textbbox((0, 0), text, font=font)
+                    text_width = text_bbox[2] - text_bbox[0]
+                    text_height = text_bbox[3] - text_bbox[1]
                     text_x = (pil_image.width - text_width) // 2
                     text_y = (pil_image.height - text_height) // 2
-                    draw.text((text_x, text_y), text, fill="white", font=font)
+
+                    # Obtener el color de fondo en la región donde se colocará el texto
+                    region = gray_image[text_y:text_y+text_height, text_x:text_x+text_width]
+                    avg_color = np.mean(region)
+
+                    # Seleccionar el color del texto (blanco o negro) basado en el color de fondo
+                    text_color = "white" if avg_color < 128 else "black"
+
+                    draw.text((text_x, text_y), text, fill=text_color, font=font)
 
                     # Guardar la imagen
                     pil_image.save(file_path)
