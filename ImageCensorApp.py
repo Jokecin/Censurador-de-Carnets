@@ -4,6 +4,7 @@ import tkinter as tk
 from tkinter import filedialog, simpledialog
 from PIL import Image, ImageTk, ImageDraw, ImageFont
 import os
+from datetime import datetime
 
 class ImageCensorApp:
     def __init__(self, master):
@@ -107,15 +108,18 @@ class ImageCensorApp:
                     font_size = max(20, gray_image.shape[0] // 20)  # Ajusta el divisor según tus necesidades
                     font = ImageFont.truetype("arial.ttf", font_size)
 
-                    # Agregar el texto en el centro de la imagen
+                    # Obtener la fecha y hora actual
+                    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+                    # Agregar el texto en la esquina inferior derecha de la imagen
                     pil_image = Image.fromarray(gray_image)
                     draw = ImageDraw.Draw(pil_image)
-                    text = f"Entregada a {reason}"
+                    text = f"Entregada a {reason}\n{current_time}"
                     text_bbox = draw.textbbox((0, 0), text, font=font)
                     text_width = text_bbox[2] - text_bbox[0]
                     text_height = text_bbox[3] - text_bbox[1]
-                    text_x = (pil_image.width - text_width) // 2
-                    text_y = (pil_image.height - text_height) // 2
+                    text_x = pil_image.width - text_width - 10  # 10 píxeles de margen desde el borde derecho
+                    text_y = pil_image.height - text_height - 10  # 10 píxeles de margen desde el borde inferior
 
                     # Obtener el color de fondo en la región donde se colocará el texto
                     region = gray_image[text_y:text_y+text_height, text_x:text_x+text_width]
