@@ -27,50 +27,50 @@ class ImageCensorApp:
             print(f"Error al cargar el icono: {e}")
 
         # Crear el frame principal
-        self.main_frame = tk.Frame(self.master, bg='black')
+        self.main_frame = tk.Frame(self.master, bg='white')
         self.main_frame.pack(fill=tk.BOTH, expand=True)
 
         # Crear el frame derecho para la ayuda
-        self.help_frame = tk.Frame(self.main_frame, width=430, height=720, bd=2, relief=tk.SUNKEN, bg='black')
+        self.help_frame = tk.Frame(self.main_frame, width=430, height=720, bd=2, relief=tk.SUNKEN, bg='white')
         self.help_frame.pack(side=tk.RIGHT, fill=tk.Y, padx=5, pady=5)
         self.help_frame.pack_propagate(False)
 
         # Crear el botón para abatir la imagen de ayuda
-        self.toggle_help_button = tk.Button(self.help_frame, text="Ocultar Ayuda", command=self.toggle_help, bg='black', fg='white')
+        self.toggle_help_button = tk.Button(self.help_frame, text="Ocultar Ayuda", command=self.toggle_help, bg='white', fg='black')
         self.toggle_help_button.pack()
 
         # Cargar y mostrar la imagen de ayuda
         self.help_image_path = os.path.join(os.path.dirname(__file__), 'ejemplo.png')
         self.help_image = Image.open(self.help_image_path)
         self.help_photo = ImageTk.PhotoImage(self.help_image)
-        self.help_label = tk.Label(self.help_frame, image=self.help_photo, bg='black')
+        self.help_label = tk.Label(self.help_frame, image=self.help_photo, bg='white')
         self.help_label.pack()
 
         # Crear la barra de herramientas
-        self.toolbar = tk.Frame(self.main_frame, bd=1, relief=tk.RAISED, bg='black')
+        self.toolbar = tk.Frame(self.main_frame, bd=1, relief=tk.RAISED, bg='white')
         self.toolbar.pack(side=tk.TOP, fill=tk.X)
 
         # Añadir botones a la barra de herramientas
-        self.open_button = tk.Button(self.toolbar, text="Abrir", command=self.open_image, bg='black', fg='white')
+        self.open_button = tk.Button(self.toolbar, text="Abrir", command=self.open_image, bg='white', fg='black')
         self.open_button.pack(side=tk.LEFT, padx=2, pady=2)
 
-        self.save_button = tk.Button(self.toolbar, text="Guardar", command=self.save_image, bg='black', fg='white')
+        self.save_button = tk.Button(self.toolbar, text="Guardar", command=self.save_image, bg='white', fg='black')
         self.save_button.pack(side=tk.LEFT, padx=2, pady=2)
 
-        self.undo_button = tk.Button(self.toolbar, text="Deshacer", command=self.undo, bg='black', fg='white')
+        self.undo_button = tk.Button(self.toolbar, text="Deshacer", command=self.undo, bg='white', fg='black')
         self.undo_button.pack(side=tk.LEFT, padx=2, pady=2)
 
-        self.zoom_in_button = tk.Button(self.toolbar, text="Zoom In", command=self.zoom_in, bg='black', fg='white')
+        self.zoom_in_button = tk.Button(self.toolbar, text="Zoom In", command=self.zoom_in, bg='white', fg='black')
         self.zoom_in_button.pack(side=tk.LEFT, padx=2, pady=2)
 
-        self.zoom_out_button = tk.Button(self.toolbar, text="Zoom Out", command=self.zoom_out, bg='black', fg='white')
+        self.zoom_out_button = tk.Button(self.toolbar, text="Zoom Out", command=self.zoom_out, bg='white', fg='black')
         self.zoom_out_button.pack(side=tk.LEFT, padx=2, pady=2)
 
-        self.exit_button = tk.Button(self.toolbar, text="Salir", command=self.master.quit, bg='black', fg='white')
+        self.exit_button = tk.Button(self.toolbar, text="Salir", command=self.master.quit, bg='white', fg='black')
         self.exit_button.pack(side=tk.LEFT, padx=2, pady=2)
 
         # Crear el canvas para la imagen principal
-        self.canvas = tk.Canvas(self.main_frame, cursor="cross", bg='black')
+        self.canvas = tk.Canvas(self.main_frame, cursor="cross", bg='white')
         self.canvas.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
 
         self.canvas.bind("<Button-1>", self.on_button_press)
