@@ -15,7 +15,7 @@ Este proyecto proporciona una herramienta gráfica para censurar partes de imág
 - 
 ## Ejecucción en Windows
 
-Ejecute la aplicación ImageCensorApp.exe contenido en la carpeta dist, no requiere ninguna instalación previa.
+Ejecute la aplicación ImageCensorApp.exe contenida en la carpeta dist, no requiere ninguna instalación previa.
 
 ## Requisitos
 
