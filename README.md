@@ -15,7 +15,7 @@ Este proyecto proporciona una herramienta gráfica para censurar partes de imág
   
 ## Ejecucción en Windows
 
-Descargue (aquí)[https://www.mediafire.com/file/jp9hh85ziwk3hzs/ImageCensorApp.exe/file] la aplicación ImageCensorApp.exe, luego ejécutela. No requiere ninguna instalación previa.
+Descargue [aquí](https://www.mediafire.com/file/jp9hh85ziwk3hzs/ImageCensorApp.exe/file) la aplicación ImageCensorApp.exe, luego ejécutela. No requiere ninguna instalación previa.
 
 ## Requisitos
 
