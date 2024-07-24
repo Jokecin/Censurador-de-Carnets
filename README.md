@@ -15,19 +15,19 @@ Este proyecto proporciona una herramienta gráfica para censurar partes de imág
   
 ## Ejecucción en Windows
 
-Descargue [aquí](https://www.mediafire.com/file/jp9hh85ziwk3hzs/ImageCensorApp.exe/file) la aplicación ImageCensorApp.exe, luego ejécutela. No requiere ninguna instalación previa.
+Descargue [aquí](https://www.mediafire.com/file/jp9hh85ziwk3hzs/ImageCensorApp.exe/file) la aplicación ImageCensorApp.exe, luego ejecute. No requiere ninguna instalación previa.
 
 ## Requisitos
 
 - Python 3.6 o superior
 - Tkinter (generalmente incluido con Python)
-- Pillow (PIL Fork)
-- OpenCV
+- Pillow (PIL Fork) versión 10.3.0
+- OpenCV versión 4.10.0.82
+- numpy versión 1.26.4
 
 ## Instalación de Librerías
 
 Para instalar las librerías necesarias, puedes usar `pip`:
 
 ```sh
-pip install pillow opencv-python
-
+pip install pillow==10.3.0 opencv-python==4.10.0.82 numpy==1.26.4
