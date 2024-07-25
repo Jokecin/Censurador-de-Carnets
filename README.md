@@ -30,7 +30,7 @@ Descargue [aquí](https://www.mediafire.com/file/i9sfoy9tvbx53i5/ImageCensorApp.
 Para instalar las librerías necesarias, puedes usar `pip`:
 
 ```sh
-pip install pillow==10.3.0 opencv-python==4.10.0.82 numpy==1.26.4
+pip install -r requirements.txt
 ```
 
 ## Instalación en Linux
