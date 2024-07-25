@@ -86,7 +86,13 @@ class ImageCensorApp:
             self.toggle_help_button.config(text="Ocultar Ayuda")
 
     def open_image(self):
-        file_path = filedialog.askopenfilename(title="Abrir imagen", filetypes=[("Archivos de imagen", "*.jpg;*.jpeg;*.png;*.bmp;*.tiff"), ("Todos los archivos", "*.*")])
+        file_path = filedialog.askopenfilename(title="Abrir imagen", filetypes=[
+            ("JPEG files", "*.jpg;*.jpeg"),
+            ("PNG files", "*.png"),
+            ("BMP files", "*.bmp"),
+            ("TIFF files", "*.tiff"),
+            ("All files", "*.*")
+        ])
         if file_path:
             self.image = cv2.cvtColor(cv2.imread(file_path), cv2.COLOR_BGR2RGB)
             self.original_image = self.image.copy()
