@@ -60,7 +60,7 @@ Sigue estos pasos para configurar y ejecutar el proyecto en Linux:
 
 5. Instala los paquetes necesarios dentro del entorno virtual:
     ```sh
-    pip install numpy==1.26.4 opencv-python==4.10.0.82 Pillow==10.3.0
+    pip install -r requirements.txt
     ```
 
 Con estos pasos, tendrás todas las dependencias necesarias instaladas y podrás ejecutar el programa dentro del entorno virtual.
