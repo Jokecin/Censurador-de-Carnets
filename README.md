@@ -31,3 +31,36 @@ Para instalar las librerías necesarias, puedes usar `pip`:
 
 ```sh
 pip install pillow==10.3.0 opencv-python==4.10.0.82 numpy==1.26.4
+```
+
+## Instalación en Linux
+
+Sigue estos pasos para configurar y ejecutar el proyecto en Linux:
+
+1. Actualiza tu sistema y asegúrate de tener `pip` y `tkinter` instalados:
+    ```sh
+    sudo apt update
+    sudo apt install python3-pip python3-tk -y
+    ```
+
+2. Crea un entorno virtual:
+    ```sh
+    python3 -m venv myenv
+    ```
+
+3. Verifica que el entorno virtual se creó correctamente:
+    ```sh
+    ls myenv
+    ```
+
+4. Activa el entorno virtual:
+    ```sh
+    source myenv/bin/activate
+    ```
+
+5. Instala los paquetes necesarios dentro del entorno virtual:
+    ```sh
+    pip install numpy==1.26.4 opencv-python==4.10.0.82 Pillow==10.3.0
+    ```
+
+Con estos pasos, tendrás todas las dependencias necesarias instaladas y podrás ejecutar el programa dentro del entorno virtual.
