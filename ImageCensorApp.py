@@ -87,11 +87,11 @@ class ImageCensorApp:
 
     def open_image(self):
         file_path = filedialog.askopenfilename(title="Abrir imagen", filetypes=[
+            ("All files", "*.*"),
             ("JPEG files", "*.jpg;*.jpeg"),
             ("PNG files", "*.png"),
             ("BMP files", "*.bmp"),
-            ("TIFF files", "*.tiff"),
-            ("All files", "*.*")
+            ("TIFF files", "*.tiff")
         ])
         if file_path:
             self.image = cv2.cvtColor(cv2.imread(file_path), cv2.COLOR_BGR2RGB)
